@@ -286,7 +286,7 @@ export default function MedenceLegalPage() {
                 alt="Justice statue"
                 width={120}
                 height={0}
-                className="w-full h-auto"
+                className="w-full"
               />
             </div>
           </motion.div>

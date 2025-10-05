@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Phone, Users, Gavel, Briefcase, Settings, Star, Plus, ArrowRight } from "lucide-react"
+import { Phone, Users, Gavel, Briefcase, Settings, Star, Plus } from "lucide-react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
@@ -118,95 +118,149 @@ export default function MedenceLegalPage() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <motion.header
-        className="border-b border-gray-200 px-4 py-4"
+        className="border-b border-gray-200 px-2 py-2 bg-white"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center">
-              <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
-                <div className="w-3 h-3 bg-blue-900 rounded-full"></div>
-              </div>
-            </div>
-            <span className="text-lg font-semibold text-gray-900">MEDENCE LEGAL</span>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/logo.webp"
+              alt="Medence Legal logo"
+              width={90}
+              height={90}
+              className="h-28 w-28"
+              priority
+            />
+            <span className="sr-only">Medence Legal</span>
           </div>
 
-          <nav className="flex items-center space-x-8">
-            <a href="#" className="text-gray-900 font-medium border-b-2 border-blue-600 pb-1">
+          <nav className="hidden sm:flex items-center gap-8">
+            <a className="text-gray-900 font-medium border-b-2 border-blue-900 pb-1" href="#">
               Home
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900">
+            <a className="text-gray-600 hover:text-gray-900" href="#faqs">
               FAQs
             </a>
           </nav>
 
-          <Button variant="outline" className="flex items-center space-x-2 bg-transparent">
+          <button
+            className="inline-flex items-center gap-2 text-blue-900 font-medium hover:opacity-80"
+            aria-label="Book A Call"
+          >
             <span>Book A Call</span>
-            <ArrowRight className="w-4 h-4" />
-          </Button>
+            <span className="inline-flex items-center justify-center h-5 w-5 rounded-full border border-blue-900">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-blue-900">
+                <path
+                  d="M7 17L17 7M17 7H8M17 7V16"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
       </motion.header>
 
       {/* Hero Section */}
-      <section className="px-4 py-16 bg-gradient-to-r from-yellow-50 to-yellow-100">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="relative overflow-hidden bg-white">
+        {/* angled pale yellow background on the right */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 w-[60%] bg-[#FFF4C6]"
+          style={{ clipPath: "polygon(200% 0, 120% 0, 180% 400%, 20% -18%)" }}
+
+        />
+        <div className="relative max-w-7xl mx-auto px-2 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
             variants={slideInLeft}
           >
-            <h1 className="text-5xl font-bold text-blue-900 mb-6">Medence Legal</h1>
-            <p className="text-xl text-gray-600 mb-8">Your Personal Lawyer. On Your Side, Always.</p>
-            <div className="flex space-x-4">
-              <Button className="bg-yellow-300 text-black hover:bg-yellow-400 px-8 py-3 rounded-full">
+            <h1 className="text-blue-900 font-bold leading-tight text-5xl md:text-6xl lg:text-7xl">Medence Legal</h1>
+            <p className="mt-5 text-gray-500 text-xl max-w-xl">Your Personal Lawyer. On Your Side, Always.</p>
+
+            <div className="mt-8 flex items-center gap-6">
+              <button className="rounded-full bg-[#fefad4] hover:bg-[#fefad4] text-gray-900 font-semibold px-8 py-3 shadow-sm ring-1 ring-black/5">
                 Check Plans
-              </Button>
-              <Button variant="outline" className="flex items-center space-x-2 px-8 py-3 rounded-full bg-transparent">
+              </button>
+              <button className="group inline-flex items-center gap-2 text-blue-900 font-medium">
                 <span>Book a Call</span>
-                <ArrowRight className="w-4 h-4" />
-              </Button>
+                <span className="inline-flex items-center justify-center h-6 w-6 rounded-full border border-blue-900 group-hover:bg-blue-50">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-blue-900">
+                    <path
+                      d="M7 17L17 7M17 7H8M17 7V16"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </button>
             </div>
           </motion.div>
 
           <motion.div
-            className="relative"
+            className="relative z-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
             variants={slideInRight}
           >
-            <div className="bg-yellow-200 rounded-3xl p-8">
-              <Image
-                src="/happy-family-with-lawyer-in-professional-setting.jpg"
-                alt="Family with lawyer"
-                width={600}
-                height={400}
-                className="rounded-2xl"
-              />
-            </div>
+            <Image
+              src="/lawyer.webp"
+              alt="Happy family with personal lawyer"
+              width={820}
+              height={780}
+              className="w-full h-full"
+              priority
+            />
           </motion.div>
         </div>
       </section>
 
       {/* Welcome Section */}
-      <section className="px-4 py-16">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="px-6 py-16"> 
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-x-96 items-center">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
             variants={slideInLeft}
           >
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-blue-900 rounded-lg"></div>
-              <div className="w-8 h-8 bg-orange-400 rounded-lg"></div>
-              <div className="w-8 h-8 bg-blue-400 rounded-lg"></div>
+            {/* small overlapping avatars */}
+            <div className="mb-5 flex -space-x-2">
+              <Image
+                src="/placeholder-user.jpg"
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-9 rounded-full ring-2 ring-white"
+              />
+              <Image
+                src="/placeholder-user.jpg"
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-9 rounded-full ring-2 ring-white"
+              />
+              <Image
+                src="/placeholder-user.jpg"
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-9 rounded-full ring-2 ring-white"
+              />
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Welcome to Medence Legal.</h2>
-            <div className="space-y-4 text-gray-600">
+
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">Welcome to Medence Legal.</h2>
+
+            <div className="mt-6 space-y-3 text-gray-600 max-w-xl">
               <p>
                 Just like insurance, you pay a simple fee upfront — and when trouble comes, we handle the legal fight
                 for you.
@@ -220,19 +274,21 @@ export default function MedenceLegalPage() {
           </motion.div>
 
           <motion.div
-            className="relative"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
             variants={slideInRight}
+            className="relative"
           >
-            <Image
-              src="/statue-of-justice-with-scales-against-dramatic-sky.jpg"
-              alt="Justice statue"
-              width={600}
-              height={500}
-              className="rounded-3xl"
-            />
+            <div className="rounded-[28px] overflow-hidden shadow-xl h-[120]">
+              <Image
+                src="/legal.webp"
+                alt="Justice statue"
+                width={120}
+                height={0}
+                className="w-full h-auto"
+              />
+            </div>
           </motion.div>
         </div>
       </section>

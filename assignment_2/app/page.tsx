@@ -280,7 +280,7 @@ export default function MedenceLegalPage() {
             variants={slideInRight}
             className="relative"
           >
-            <div className="rounded-[28px] overflow-hidden shadow-xl h-[120]">
+            <div className="rounded-[28px] overflow-hidden shadow-xl h-[240]">
               <Image
                 src="/legal.webp"
                 alt="Justice statue"

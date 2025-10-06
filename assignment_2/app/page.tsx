@@ -285,7 +285,7 @@ export default function MedenceLegalPage() {
                 src="/legal.webp"
                 alt="Justice statue"
                 width={120}
-                height={0}
+                height={120}
                 className="w-full"
               />
             </div>

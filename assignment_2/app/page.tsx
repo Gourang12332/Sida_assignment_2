@@ -276,17 +276,17 @@ export default function MedenceLegalPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.4 }}
             variants={slideInRight}
             className="relative"
           >
-            <div className="rounded-[28px] overflow-hidden shadow-xl h-[120]">
+            <div className="rounded-[28px] overflow-hidden shadow-xl h-[595px]">
               <Image
                 src="/legal.webp"
                 alt="Justice statue"
                 width={120}
-                height={0}
-                className="w-full h-auto"
+                height={595}
+                className="w-auto h-full"
               />
             </div>
           </motion.div>
